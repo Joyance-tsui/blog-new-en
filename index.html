@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh">
+    ' © this is a personal webside, all rights reserved by Joyance, the owner.'
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyance's blog</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FAFAFA;
+            color: #212121;
+        }
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: #E0E0E0;
+            }
+        }
+        header {
+            background-color: #FFFFFF;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        @media (prefers-color-scheme: dark) {
+            header {
+                background-color: #1E1E1E;
+            }
+        }
+        nav {
+            background-color: #FFFFFF;
+            padding: 8px 16px;
+        }
+        @media (prefers-color-scheme: dark) {
+            nav {
+                background-color: #1E1E1E;
+            }
+        }
+        nav a {
+            color: #212121;
+            text-decoration: none;
+            margin-right: 16px;
+            font-weight: 500;
+        }
+        @media (prefers-color-scheme: dark) {
+            nav a {
+                color: #E0E0E0;
+            }
+        }
+        .container {
+            padding: 16px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background-color: #FFFFFF;
+            border-radius: 2px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        }
+        @media (prefers-color-scheme: dark) {
+            .card {
+                background-color: #2C2C2C;
+            }
+        }
+        .article {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #EEEEEE;
+        }
+        @media (prefers-color-scheme: dark) {
+            .article {
+                border-bottom-color: #424242;
+            }
+        }
+        button {
+            background-color: #212121;
+            color: #FFFFFF;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        @media (prefers-color-scheme: dark) {
+            button {
+                background-color: #4A4A4A;
+                color: #E0E0E0;
+            }
+        }
+        button:hover {
+            background-color: #424242;
+        }
+        @media (prefers-color-scheme: dark) {
+            button:hover {
+                background-color: #616161;
+            }
+        }
+        .pinned {
+            border-left: 4px solid #9E9E9E;
+        }
+        @media (prefers-color-scheme: dark) {
+            .pinned {
+                border-left: 4px solid #757575;
+            }
+        }
+        .article-preview {
+            white-space: pre-wrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+        }
+        .article-link {
+            color: #212121;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        @media (prefers-color-scheme: dark) {
+            .article-link {
+                color: #E0E0E0;
+            }
+        }
+        .article-info {
+            font-size: 0.9em;
+            color: #757575;
+            margin-top: 8px;
+        }
+        @media (prefers-color-scheme: dark) {
+            .article-info {
+                color: #BDBDBD;
+            }
+        }
+        .copy-button {
+            margin-left: 10px;
+            padding: 4px 8px;
+            font-size: 12px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 12px;
+            }
+
+            #controls {
+                margin-top: 12px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            nav a {
+                flex: 1 0 auto;
+                text-align: center;
+                padding: 8px 0;
+            }
+
+            .container {
+                padding: 12px;
+            }
+
+            .card {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="headerTitle">Joyance's blog</h1>
+        <div id="controls">
+            <button onclick="window.location.href='https://joyance-tsui.github.io/blog-new-cn/'">Chinese</button>
+            <button onclick="window.location.href='https://joyance-tsui.github.io/plog-classical'">classical</button>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#" onclick="showPage('home')" id="navHome">home</a>
+        <a href="#" onclick="showPage('contact')" id="navContact">contact</a>
+    </nav>
+
+    <div class="container" id="content">
+    </div>
+
+<script>
+    let articles = [
+        { title: 'Starting My Personal Blog', content: 'This is my first personal blog. I haven\'t bought a separate domain, and the functionality is not complete (line breaks are not yet supported). The articles are directly stored in the frontend code (it', pinned: true, wordCount: 452, url: 'https://example.com/article2' },
+		 { title: 'The Monopoly of Chinese Ride-Hailing Services', content: 'Today, on my way home in a ride-hailing car, the driver told me about the unfair treatment they face. This got me thinking. The driver said he drove a taxi for five years and has been a ride-hailing driver', pinned: true, wordCount: 3000, url: 'https://example.com/article2' },
+    ];
+
+    function showPage(page) {
+        let content = '';
+        if (page === 'home') {
+            content = '<div class="card"><h2>welcome to my plog</h2><p>A blog is an informational website consisting of discrete, often informal diary-style text entries (posts).It is a website or online diary managed by an individual to post new articles, pictures or videos, used to record, express emotions or share information.</p></div>';
+            articles.forEach(article => {
+                const previewContent = article.content.slice(0, 200) + '...';
+                const wordCount = article.wordCount;
+                const readingTime = Math.ceil(wordCount / 200); 
+                content += `
+                    <div class="card ${article.pinned ? 'pinned' : ''}">
+                        <h3>${article.title}</h3>
+                        <div class="article-preview">${previewContent}</div>
+                        <div class="article-info">
+                            Word count：${wordCount} | time may spend：${readingTime}min
+                            <a href="${article.url}" class="article-link">read</a>
+                        </div>
+                    </div>
+                `;
+            });
+        } else if (page === 'contact') {
+            content = `
+                <div class="card">
+                    <h2>contact</h2>
+                    <p>email：guangyinzhong@outlook.com <button class="copy-button" onclick="copyToClipboard('guangyinzhong@outlook.com')">copy</button></p>
+                    <p>WeChatID：Jiayue-Cui <button class="copy-button" onclick="copyToClipboard('Jiayue-Cui')">copy</button></p>
+                    <p>𝕏 account：@Xixiphus_Jiayue <button class="copy-button" onclick="copyToClipboard('@Xixiphus_Jiayue')">copy</button></p>
+                </div>
+            `;
+        }
+        document.getElementById('content').innerHTML = content;
+    }
+
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(function() {
+            alert('copied');
+        }, function(err) {
+            console.error('error: ', err);
+        });
+    }
+
+    showPage('home');
+</script>
+</body>
+</html>
