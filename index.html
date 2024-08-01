@@ -206,7 +206,7 @@
     function showPage(page) {
         let content = '';
         if (page === 'home') {
-            content = '<div class="card"><h2>welcome to my plog</h2><p>A blog is an informational website consisting of discrete, often informal diary-style text entries (posts).It is a website or online diary managed by an individual to post new articles, pictures or videos, used to record, express emotions or share information.</p></div>';
+            content = '<div class="card"><h2>welcome to my blog</h2><p>A blog is an informational website consisting of discrete, often informal diary-style text entries (posts).It is a website or online diary managed by an individual to post new articles, pictures or videos, used to record, express emotions or share information.</p></div>';
             articles.forEach(article => {
                 const previewContent = article.content.slice(0, 200) + '...';
                 const wordCount = article.wordCount;
